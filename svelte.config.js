@@ -14,10 +14,14 @@ export default {
   }
 };
 
-import adapter from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-static';
 
 export default {
   kit: {
-    adapter: adapter()
+    adapter: adapter({
+      pages: 'build',
+      assets: 'build',
+      fallback: 'index.html'
+    })
   }
 };
