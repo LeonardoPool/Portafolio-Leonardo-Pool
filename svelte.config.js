@@ -13,3 +13,11 @@ export default {
     // paths.base: '' por defecto está bien para la mayoría de deploys
   }
 };
+
+import adapter from '@sveltejs/adapter-vercel';
+
+export default {
+  kit: {
+    adapter: adapter()
+  }
+};
