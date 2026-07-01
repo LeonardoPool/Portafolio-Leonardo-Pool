@@ -10,14 +10,23 @@
   import iconApp from '../assets/images/icon-app.svg';
   import iconPhoto from '../assets/images/icon-photo.svg';
   import iconQuote from '../assets/images/icon-quote.svg';
-  import checkGif from '../assets/images/check.gif';
-  import logo1 from '../assets/images/logo-1-color.png';
-  import logo2 from '../assets/images/logo-2-color.png';
-  import logo3 from '../assets/images/logo-3-color.png';
-  import logo4 from '../assets/images/logo-4-color.png';
-  import logo5 from '../assets/images/logo-5-color.png';
-  import logo6 from '../assets/images/logo-6-color.png';
+  import LogoLoop from './LogoLoop.svelte';
 
+  const techLogos = [
+    { src: 'https://cdn.simpleicons.org/html5', alt: 'HTML' },
+    { src: 'https://cdn.simpleicons.org/javascript', alt: 'JS' },
+    { src: 'https://cdn.simpleicons.org/nextdotjs/ffffff', alt: 'Next.js' },
+    { src: 'https://cdn.simpleicons.org/svelte', alt: 'Svelte' },
+    { src: 'https://cdn.simpleicons.org/firebase', alt: 'Firebase' },
+    { src: 'https://cdn.simpleicons.org/claude', alt: 'Claude' },
+    { src: 'https://cdn.simpleicons.org/openai', alt: 'OpenAI' },
+    { src: 'https://cdn.simpleicons.org/github/ffffff', alt: 'GitHub' },
+    { src: 'https://cdn.simpleicons.org/vercel/ffffff', alt: 'Vercel' },
+    { src: 'https://cdn.simpleicons.org/googlecloud', alt: 'Google Cloud' },
+    { src: 'https://cdn.simpleicons.org/python', alt: 'Python' },
+    { src: 'https://cdn.simpleicons.org/tailwindcss', alt: 'Tailwind CSS' },
+    { src: 'https://cdn.simpleicons.org/typescript', alt: 'TypeScript' }
+  ];
 
   let isModalActive = false;
   let currentModal = {
@@ -90,7 +99,7 @@
 
   <section class="service">
 
-    <h3 class="h3 service-title">Trabajando en ...</h3>
+    <h3 class="h3 service-title">Experiencia en ...</h3>
 
     <ul class="service-list">
 
@@ -117,7 +126,7 @@
         </div>
 
         <div class="service-content-box">
-          <h4 class="h4 service-item-title">Web development</h4>
+          <h4 class="h4 service-item-title">Desarrollo Web</h4>
 
           <p class="service-item-text">
             Desarrollo de cualquier tipo de página web según la solicitud del usuario. 
@@ -236,66 +245,26 @@
 
   </div>
 
-
-  <!--
-    - Success modal
-  -->
-  <div class="modal-container" data-success-modal-container>
-    <div class="overlay" data-overlay></div>
-    <section class="testimonials-modal success-modal">
-      <button class="modal-close-btn" data-success-modal-close-btn aria-label="Close modal">
-        <ion-icon name="close-outline"></ion-icon>
-      </button>
-      <div class="modal-content">
-        <figure class="modal-avatar-box">
-          <img src={checkGif} alt="Success" width="80">
-        </figure>
-        <h4 class="h3 modal-title">¡Gracias!</h4>
-        <div data-modal-text>
-          <p>
-            Muchas gracias por brindar tu información, me pondré en contacto contigo lo más pronto posible.
-          </p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-
   <!--
     - clients
   -->
 
   <section class="clients">
 
-    <h3 class="h3 clients-title">Clients</h3>
+    <h3 class="h3 clients-title">Tecnologías</h3>
 
-    <ul class="clients-list has-scrollbar">
-
-      <li class="clients-item">
-        <img src={logo1} alt="client logo">
-      </li>
-
-      <li class="clients-item">
-        <img src={logo2} alt="client logo">
-      </li>
-
-      <li class="clients-item">
-        <img src={logo3} alt="client logo">
-      </li>
-
-      <li class="clients-item">
-        <img src={logo4} alt="client logo">
-      </li>
-
-      <li class="clients-item">
-        <img src={logo5} alt="client logo">
-      </li>
-
-      <li class="clients-item">
-        <img src={logo6} alt="client logo">
-      </li>
-
-    </ul>
+    <LogoLoop
+      logos={techLogos}
+      speed={60}
+      direction="left"
+      logoHeight={35}
+      gap={50}
+      hoverSpeed={0}
+      scaleOnHover={true}
+      fadeOut={true}
+      fadeOutColor="#1e1e1f"
+      ariaLabel="Tecnologías"
+    />
 
   </section>
 

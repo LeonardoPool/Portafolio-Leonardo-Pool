@@ -322,7 +322,7 @@ main {
   transition: var(--transition-2);
 }
 
-.sidebar.active { max-height: 405px; }
+.sidebar.active { max-height: 550px; }
 
 .sidebar-info {
   position: relative;
@@ -334,7 +334,17 @@ main {
 
 .avatar-box {
   background: var(--bg-gradient-onyx);
-  border-radius: 40px;
+  border-radius: 20px;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+}
+
+.avatar-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .info-content .name {
@@ -353,6 +363,7 @@ main {
   width: max-content;
   padding: 3px 12px;
   border-radius: 8px;
+  text-align: center;
 }
 
 .info_more-btn {
@@ -466,6 +477,13 @@ main {
   border-radius: 12px 12px 0 0;
   box-shadow: var(--shadow-2);
   z-index: 5;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.navbar::-webkit-scrollbar {
+  display: none;
 }
 
 .navbar-list {
@@ -975,6 +993,7 @@ main {
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 15px;
+  background: var(--eerie-black-1);
 }
 
 .project-img::before {
@@ -1018,7 +1037,7 @@ main {
 .project-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: var(--transition-1);
 }
 
@@ -1262,7 +1281,6 @@ textarea.form-input::-webkit-resizer { display: none; }
    * #PORTFOLIO, BLOG 
    */
 
-  .project-img,
   .blog-banner-box { height: auto; }
 
 }
@@ -1352,9 +1370,11 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { gap: 25px; }
 
-  .avatar-box { border-radius: 30px; }
-
-  .avatar-box img { width: 120px; border-radius: 18px; }
+  .avatar-box {
+    border-radius: 30px;
+    width: 120px;
+    height: 120px;
+  }
 
   .info-content .name { margin-bottom: 15px; }
 
@@ -1769,6 +1789,11 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .blog-banner-box { height: 230px; }
 
+  /* Push header down to prevent overlap with top-right absolute navbar */
+  article header {
+    margin-top: 60px;
+  }
+
 }
 
 
@@ -1850,7 +1875,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { flex-direction: column; }
 
-  .avatar-box img { width: 150px; }
+  .avatar-box {
+    width: 150px;
+    height: 150px;
+  }
 
   .info-content .name {
     white-space: nowrap;

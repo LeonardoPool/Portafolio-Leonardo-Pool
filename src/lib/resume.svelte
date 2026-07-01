@@ -24,7 +24,7 @@
 
               <h4 class="h4 timeline-item-title">Universidad Técnológica Metropolitana</h4>
 
-              <span>2024 — </span>
+              <span>2024 — 2026 </span>
 
               <p class="timeline-text">
                Ingeniero en Desarrollo y Gestión de Software.

@@ -1,5 +1,5 @@
 <script>
-  import profileImg from '../assets/images/PERFIL.PNG';
+  import profileImg from '../assets/images/FOTO PERFIL.png';
   let isActive = false;
 
   function toggleSidebar() {
@@ -18,7 +18,7 @@
     <div class="info-content">
       <h1 class="name" title="Leonardo Pool">Leonardo Pool</h1>
 
-      <p class="title">Web developer & Project Manager</p>
+      <p class="title">Ingeniero en gestión<br>y<br>desarrollo de software</p>
     </div>
 
     <button class="info_more-btn" on:click={toggleSidebar}>

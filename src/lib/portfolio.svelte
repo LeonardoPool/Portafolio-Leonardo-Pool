@@ -1,74 +1,44 @@
 <script>
   import { activePage } from '$lib/store.js';
 
-  import project1 from '../assets/images/project-1.jpg';
-  import project2 from '../assets/images/project-2.png';
-  import project3 from '../assets/images/project-3.jpg';
-  import project4 from '../assets/images/project-4.png';
-  import project5 from '../assets/images/project-5.png';
-  import project6 from '../assets/images/project-6.png';
-  import project7 from '../assets/images/project-7.png';
-  import project8 from '../assets/images/project-8.jpg';
-  import project9 from '../assets/images/project-9.png';
+  import destImg from '../assets/images/Web/Destlanding.png';
+  import gmtImg from '../assets/images/Web/GMTlanding.png';
+  import motorImg from '../assets/images/Web/Motor.png';
+  import tallerImg from '../assets/images/Web/taller.png';
+  import BorderGlow from './BorderGlow.svelte';
 
-  let selectedCategory = 'All';
+  let selectedCategory = 'Web development';
 
-  const filterButtons = ['All', 'Web design', 'Applications', 'Web development'];
+  const filterButtons = ['Web development'];
 
   const projects = [
     {
       category: 'Web development',
-      image: project1,
-      alt: 'finance',
-      title: 'Finance',
+      image: tallerImg,
+      alt: 'sistema de gestion de taller',
+      title: 'Sistema de Gestión de Taller',
+      href: '#'
     },
     {
       category: 'Web development',
-      image: project2,
-      alt: 'orizon',
-      title: 'Orizon',
-    },
-    {
-      category: 'Web design',
-      image: project3,
-      alt: 'fundo',
-      title: 'Fundo',
-    },
-    {
-      category: 'Applications',
-      image: project4,
-      alt: 'brawlhalla',
-      title: 'Brawlhalla',
-    },
-    {
-      category: 'Web design',
-      image: project5,
-      alt: 'dsm.',
-      title: 'DSM.',
-    },
-    {
-      category: 'Web design',
-      image: project6,
-      alt: 'metaspark',
-      title: 'MetaSpark',
+      image: gmtImg,
+      alt: 'gmt landing page',
+      title: 'GMT Landing Page',
+      href: 'https://www.gmtmayorista.com/'
     },
     {
       category: 'Web development',
-      image: project7,
-      alt: 'summary',
-      title: 'Summary',
-    },
-    {
-      category: 'Applications',
-      image: project8,
-      alt: 'task manager',
-      title: 'Task Manager',
+      image: destImg,
+      alt: 'Landing Page Destpoint',
+      title: 'Landing Page Destpoint',
+      href: 'https://destpoint-landing.vercel.app/'
     },
     {
       category: 'Web development',
-      image: project9,
-      alt: 'arrival',
-      title: 'Arrival',
+      image: motorImg,
+      alt: 'motor de reservas',
+      title: 'Motor de Reservas',
+      href: 'https://search-engine-gmt.vercel.app/'
     },
   ];
 
@@ -111,16 +81,28 @@
     <ul class="project-list">
       {#each filteredProjects as project}
         <li class="project-item active" data-category={project.category}>
-          <div>
-            <figure class="project-img">
-              <div class="project-item-icon-box">
-                <ion-icon name="eye-outline"></ion-icon>
-              </div>
-              <img src={project.image} alt={project.alt} loading="lazy" />
-            </figure>
+          <a href={project.href} target="_blank" rel="noopener noreferrer">
+            <BorderGlow
+              edgeSensitivity={30}
+              glowColor="45 100% 72%"
+              backgroundColor="#1e1e1f"
+              borderRadius={16}
+              glowRadius={25}
+              glowIntensity={0.8}
+              coneSpread={20}
+              colors={['#f5c26b', '#ebaa38', '#fce2a6']}
+              style="margin-bottom: 15px; width: 100%;"
+            >
+              <figure class="project-img" style="margin-bottom: 0; width: 100%; height: 100%;">
+                <div class="project-item-icon-box">
+                  <ion-icon name="eye-outline"></ion-icon>
+                </div>
+                <img src={project.image} alt={project.alt} loading="lazy" />
+              </figure>
+            </BorderGlow>
             <h3 class="project-title">{project.title}</h3>
             <p class="project-category">{project.category}</p>
-          </div>
+          </a>
         </li>
       {/each}
     </ul>

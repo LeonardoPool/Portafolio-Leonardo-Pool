@@ -1,12 +1,12 @@
 <script>
   import { onMount } from 'svelte';
-  import '../assets/css/style.css';
+  import '../../assets/css/style.css';
   import Navbar from '$lib/navbar.svelte';
   import Sidebar from '$lib/sidebar.svelte';
 
   onMount(async () => {
     await Promise.all([
-      import('../assets/js/script.js'),
+      import('../../assets/js/script.js'),
       import('$lib/firebase.js')
     ]);
   });

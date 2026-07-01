@@ -5,6 +5,7 @@
   import Portfolio from '$lib/portfolio.svelte';
   import Blog from '$lib/blog.svelte';
   import Contact from '$lib/contact.svelte';
+  import Documentacion from '$lib/documentacion.svelte';
 </script>
 
 {#if $activePage === 'about'}
@@ -15,6 +16,8 @@
   <Portfolio />
 {:else if $activePage === 'blog'}
   <Blog />
+{:else if $activePage === 'documentacion'}
+  <Documentacion />
 {:else if $activePage === 'contact'}
   <Contact />
 {/if}

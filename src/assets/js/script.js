@@ -1,5 +1,5 @@
 // Anti-debugger and source code protection
-(function() {
+/*(function() {
     console.log('%cATTENTION:', 'color: red; font-size: 20px;');
     console.log('%cThis website is protected against code inspection.', 'font-size: 16px;');
     console.log('%cPlease refrain from trying to copy or debug the code.', 'font-size: 16px;');
@@ -22,7 +22,7 @@
     setInterval(check, 1000); 
 })();
 
-'use strict';
+'use strict';*/
 
 /* ===============================
    Utilidades

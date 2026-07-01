@@ -2,6 +2,7 @@
   // @ts-nocheck
   import { activePage } from '$lib/store.js';
   import { onMount } from 'svelte';
+  import checkGif from '../assets/images/check.gif';
 
   onMount(() => {
     const contactForm = document.querySelector("[data-form]");
@@ -107,4 +108,52 @@
 
   </section>
 
+  <!--
+    - Success modal
+  -->
+  <div class="modal-container" data-success-modal-container>
+    <div class="overlay" data-overlay></div>
+    <section class="testimonials-modal success-modal">
+      <button class="modal-close-btn" data-success-modal-close-btn aria-label="Close modal">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <div class="modal-content">
+        <figure class="modal-avatar-box">
+          <img src={checkGif} alt="Success" width="80">
+        </figure>
+        <h4 class="h3 modal-title">¡Gracias!</h4>
+        <div data-modal-text>
+          <p>
+            Muchas gracias por brindar tu información, me pondré en contacto contigo lo más pronto posible.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
 </article>
+
+<style>
+  :global(.success-modal .modal-avatar-box) {
+    background: hsla(145, 63%, 42%, 0.15) !important;
+    border: 2px solid hsl(145, 63%, 42%) !important;
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 15px !important;
+    overflow: hidden !important;
+    box-shadow: 0 0 20px hsla(145, 63%, 42%, 0.3) !important;
+  }
+
+  :global(.success-modal .modal-avatar-box img) {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: contain !important;
+    mix-blend-mode: screen !important;
+    filter: invert(1) hue-rotate(180deg) brightness(1.6) contrast(1.2) !important;
+    background: transparent !important;
+  }
+</style>

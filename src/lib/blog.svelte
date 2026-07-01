@@ -68,17 +68,32 @@
 
 <article class="blog" data-page="blog" class:active={$activePage === 'blog'}>
 
-  <header>
+  <header class="blog-header-section">
     <h2 class="h2 article-title">Blog</h2>
+    
+    <!-- Premium Promo Card for the new Svelte Blog -->
+    <div class="lens-promo-card">
+      <div class="lens-promo-glow"></div>
+      <div class="lens-promo-content">
+        <div class="lens-badge">NUEVO</div>
+        <h3 class="lens-title">Mi Blog Técnico</h3>
+        <p class="lens-description">
+          ¡He rediseñado y migrado mi blog a Svelte! Visita mi nuevo espacio interactivo con buscador en tiempo real, filtros dinámicos, modo oscuro y visor de lectura inmersivo.
+        </p>
+        <a href="/blog" class="lens-action-btn">
+          <span>Explorar Blog Técnico</span>
+          <ion-icon name="rocket-outline"></ion-icon>
+        </a>
+      </div>
+    </div>
   </header>
 
   <section class="blog-posts">
-
+    <h3 class="h3 section-subtitle">Publicaciones Externas</h3>
     <ul class="blog-posts-list">
-
       {#each blogs as blog}
         <li class="blog-post-item">
-          <a href={blog.href}>
+          <a href={blog.href} target="_blank" rel="noopener noreferrer">
             <figure class="blog-banner-box">
               <img src={blog.image} alt={blog.alt} loading="lazy">
             </figure>
@@ -87,7 +102,7 @@
               <div class="blog-meta">
                 <p class="blog-category">{blog.category}</p>
                 <span class="dot"></span>
-                <time datetime={blog.date}>{new Date(blog.date).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}</time>
+                <time datetime={blog.date}>{new Date(blog.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' })}</time>
               </div>
               <h3 class="h3 blog-item-title">{blog.title}</h3>
               <p class="blog-text">{blog.text}</p>
@@ -95,7 +110,114 @@
           </a>
         </li>
       {/each}
-
     </ul>
   </section>
 </article>
+
+<style>
+  .blog-header-section {
+    margin-bottom: 30px;
+  }
+
+  .section-subtitle {
+    margin-bottom: 20px;
+    color: var(--white-2);
+    font-size: var(--fs-3);
+  }
+
+  /* Lens Promo Banner Style */
+  .lens-promo-card {
+    position: relative;
+    margin-top: 25px;
+    padding: 24px;
+    border-radius: 16px;
+    background: var(--border-gradient-onyx);
+    border: 1px solid var(--jet);
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: var(--shadow-3);
+  }
+
+  .lens-promo-card::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: var(--bg-gradient-jet);
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  .lens-promo-glow {
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, hsla(45, 100%, 72%, 0.15) 0%, transparent 70%);
+    filter: blur(20px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .lens-promo-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lens-badge {
+    background: var(--text-gradient-yellow);
+    color: var(--smoky-black);
+    font-size: 10px;
+    font-weight: var(--fw-600);
+    padding: 3px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+
+  .lens-title {
+    color: var(--white-1);
+    font-size: var(--fs-2);
+    font-weight: var(--fw-600);
+    margin-bottom: 8px;
+    font-family: var(--ff-poppins);
+  }
+
+  .lens-description {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-300);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    max-width: 90%;
+  }
+
+  .lens-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--text-gradient-yellow);
+    color: var(--smoky-black);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: var(--fs-6);
+    font-weight: var(--fw-600);
+    transition: var(--transition-1);
+    box-shadow: 0 4px 12px rgba(253, 211, 80, 0.2);
+  }
+
+  .lens-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(253, 211, 80, 0.35);
+    filter: brightness(1.05);
+  }
+
+  .lens-action-btn ion-icon {
+    font-size: 16px;
+  }
+</style>
